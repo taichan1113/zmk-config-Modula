@@ -251,7 +251,7 @@
 &mb4_alt_gui_n  &msc SCUP_S &bl BL_TOG  &msc SCDN_S   &mb5_alt_gui_p            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp C_MUTE &kp C_MUTE
 			>;
-            sensor-bindings = <&vol_up_down &bl_up_down>;
+            sensor-bindings = <&vol_up_down>;
 		};
 		
 		symbol_layer {
@@ -264,7 +264,7 @@
 &mb4_alt_gui_n  &msc MOVE_Y(120)   &kp PSCRN  &msc MOVE_Y(-120)   &mb5_alt_gui_p            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp HOME &kp END
 			>;
-            sensor-bindings = <&vol_up_down &bl_up_down>;
+            sensor-bindings = <&vol_up_down>;
 		};
 		
 		navnum_layer {
@@ -277,7 +277,7 @@
 &mb4_alt_gui_n  &msc MOVE_Y(1200)   &kp PSCRN  &msc MOVE_Y(-1200)   &mb5_alt_gui_p            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp HOME &kp END
 			>;
-            sensor-bindings = <&vol_up_down &bl_up_down>;
+            sensor-bindings = <&vol_up_down>;
 		};
 		
 		function_layer {
@@ -290,7 +290,7 @@
 &mb4_alt_gui_n  &msc MOVE_Y(120)   &kp PSCRN  &msc MOVE_Y(-120)   &mb5_alt_gui_p            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp HOME &kp END
 			>;
-            sensor-bindings = <&mouse_scrl &vol_up_down>;
+            sensor-bindings = <&vol_up_down>;
 		};
 		
 		device_layer {
@@ -303,7 +303,7 @@
 &mb4_alt_gui_n  &bl BL_INC   &bl BL_TOG  &bl BL_DEC   &mb5_alt_gui_p            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp HOME &kp END
 			>;
-            sensor-bindings = <&vol_up_down &bl_up_down>;
+            sensor-bindings = <&vol_up_down>;
 		};
 
         mouse_layer {
@@ -316,7 +316,7 @@
 &mb4_alt_gui_n  &msc MOVE_Y(120)   &kp PSCRN  &msc MOVE_Y(-120)   &mb5_alt_gui_p            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp HOME &kp END
 			>;
-            sensor-bindings = <&vol_up_down &bl_up_down>;
+            sensor-bindings = <&vol_up_down>;
 		};
 	};
 };

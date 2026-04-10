@@ -6,8 +6,8 @@
 
 &right_encoder { // ToDo: must be moved to module/snippet
     status = "okay"; 
-    a-gpios = <&gpio1 12 (GPIO_ACTIVE_HIGH)>;
-    b-gpios = <&gpio1 15 (GPIO_ACTIVE_HIGH)>;
+    a-gpios = <&gpio1 15 (GPIO_ACTIVE_HIGH)>;
+    b-gpios = <&gpio1 12 (GPIO_ACTIVE_HIGH)>;
     steps = <60>;
 };
 

@@ -1,11 +1,11 @@
 #include "Modula_Base.dtsi"
 
-&left_encoder { // ToDo: must be moved to module/snippet
-    status = "okay"; 
-    a-gpios = <&gpio0 16 (GPIO_ACTIVE_HIGH)>;
-    b-gpios = <&gpio1  0 (GPIO_ACTIVE_HIGH)>;
-    steps = <60>;
-};
+// &left_encoder { // ToDo: must be moved to module/snippet
+//     status = "okay"; 
+//     a-gpios = <&gpio0 16 (GPIO_ACTIVE_HIGH)>;
+//     b-gpios = <&gpio1  0 (GPIO_ACTIVE_HIGH)>;
+//     steps = <60>;
+// };
 
 /delete-node/ &kscan2; // ToDo: must be moved to module/snippet
 

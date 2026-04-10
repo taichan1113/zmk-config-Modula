@@ -11,7 +11,7 @@
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios =  <&gpio1 12 GPIO_ACTIVE_LOW>;
+    cs-gpios =  <&gpio1 14 GPIO_ACTIVE_LOW>;
 
     trackball_paw3222: trackball_paw3222@0 {
         status = "okay";
