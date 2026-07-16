@@ -63,6 +63,18 @@
             time-to-max-speed-ms = <300>;
             acceleration-exponent = <0>;
         };
+        qmsc: quick-mouse-scroll {
+            compatible = "modula,behavior-quick-scroll";
+            #binding-cells = <1>;
+            x-input-code = <INPUT_REL_HWHEEL>;
+            y-input-code = <INPUT_REL_WHEEL>;
+            trigger-period-ms = <16>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <0>;
+            double-tap-ms = <100>;
+            fast-multiplier = <8>;
+            tap-step-ms = <80>;
+        };
         msc_dt: msc-double-tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -248,7 +260,7 @@
 &mth LCTRL RET  &kp A         &kp S         &kp D     &kp F             &kp G                   &kp H       &kp J           &kp K       &kp L       &semi        &sqt
 &mth LSHIFT ESC &kp Z         &kp X         &kp C     &kp V             &kp B                   &kp N       &kp M           &kp COMMA   &kp DOT     &kp SLASH    &kp LGUI
 &kp  ESC        &trans        &trans        &lth SYMBOL SPACE &lth NAVNUM BSPC                  &kp LALT    &mt LSHFT RET               &tog MOUSE  &bl BL_CYCLE &tog SYMBOL
-&mb4_alt_gui_n  &msc SCUP_S &bl BL_TOG  &msc SCDN_S   &mb5_alt_gui_p            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
+&mb4_alt_gui_n  &qmsc SCUP_S &bl BL_TOG  &qmsc SCDN_S   &mb5_alt_gui_p            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp C_MUTE &kp PSCRN
 			>;
             sensor-bindings = <&bl_up_down &vol_alt_tab>;
@@ -319,4 +331,9 @@
             sensor-bindings = <&bl_up_down &vol_alt_tab>;
 		};
 	};
+
+    qmsc_input_listener: qmsc_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&qmsc>;
+    };
 };
