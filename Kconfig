@@ -1,0 +1,16 @@
+menuconfig MODULA_BEHAVIOR_POINTER_HOLD_TAP
+    bool "Pointer-motion-aware hold-tap behavior"
+    depends on ZMK_POINTING
+    default y
+    help
+      Resolves a hold-tap to its tap binding when relative pointer movement
+      arrives while the key is still held.
+
+if MODULA_BEHAVIOR_POINTER_HOLD_TAP
+
+config MODULA_BEHAVIOR_POINTER_HOLD_TAP_MAX_HELD
+    int "Maximum simultaneous pointer hold-taps"
+    default 4
+    range 1 10
+
+endif

@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <behaviors/jp.dtsi>
 #include <behaviors/quick_scroll.dtsi>
+#include <behaviors/pointer_hold_tap.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
@@ -225,7 +226,7 @@
 &lth FCN TAB    &plt FCN Q    &kp W         &kp E     &kp R             &kp T                   &kp Y       &kp U           &kp I       &kp O       &kp P        &kp MINUS
 &mth LCTRL RET  &kp A         &kp S         &kp D     &kp F             &kp G                   &kp H       &kp J           &kp K       &kp L       &kp SEMI     &kp SQT
 &mth LSHIFT ESC &kp Z         &kp X         &kp C     &kp V             &kp B                   &kp N       &kp M           &kp COMMA   &kp DOT     &kp SLASH    &kp LGUI
-&kp  ESC        &trans        &trans        &lth SYMBOL SPACE &lth NAVNUM BSPC                  &kp LALT    &mt LSHFT RET               &tog MOUSE  &none &tog SYMBOL
+&kp  ESC        &trans        &trans        &lth SYMBOL SPACE &pht_lt NAVNUM MB1                &kp LALT    &mt LSHFT RET               &tog MOUSE  &none &tog SYMBOL
 &mb4_alt_gui_n  &qmsc SCUP_S &none  &qmsc SCDN_S   &mb5_alt_gui_p            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp C_MUTE &kp PSCRN
 			>;
