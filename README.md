@@ -13,7 +13,8 @@ Modula は ZMK を使う左右分割キーボードです。トラックボー�
 | 分類 | snippet | 用途・注意 |
 | --- | --- | --- |
 | トラックボール | `trackball_paw3222` | PAW3222 モジュール。 |
-| トラックボール | `trackball_pat9125` | PAT9125 モジュール。モジュール内 EC11（P1.12 / P1.15）も有効になります。 |
+| トラックボール | `trackball_pat9125` | PAT9125 v2 モジュール。モジュール内 EC11（P1.12 / P1.15）も有効になります。 |
+| トラックボール | `trackball_pat9125_legacy` | PAT9125 v1 基板。P1.12 を ID_SEL 用 LOW に固定し、I2C アドレス `0x75` を使用します。 |
 | トラックボール | `pmw3610_alt` | PMW3610-alt モジュール。 |
 | エンコーダ | `encoder_ec11_left` | EC11 スロット 1（P1.13 / P1.14）。PAT9125 と併用できます。 |
 | エンコーダ | `encoder_ec11_right` | EC11 スロット 2（P1.12 / P1.15）。PAT9125 内蔵 EC11 と競合するため併用しません。 |
@@ -25,6 +26,8 @@ PAT9125 と `encoder_ec11_left` の組み合わせは次のように書けます
 ```yaml
 snippet: trackball_pat9125 encoder_ec11_left
 ```
+
+PAT9125 v1 では SCL が P1.13 のため、`encoder_ec11_left` と同時には指定しません。
 
 現在の有効な構成は [build.yaml](build.yaml) を参照してください。モジュールのピン競合については [snippet-modules.md](docs/snippet-modules.md) も参照してください。
 

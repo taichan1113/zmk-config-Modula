@@ -1,0 +1,55 @@
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include "../listners.dtsi"
+
+&pinctrl {
+    pat9125_legacy_i2c1_default: pat9125_legacy_i2c1_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
+                    <NRF_PSEL(TWIM_SCL, 1, 13)>;
+        };
+    };
+
+    pat9125_legacy_i2c1_sleep: pat9125_legacy_i2c1_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
+                    <NRF_PSEL(TWIM_SCL, 1, 13)>;
+            low-power-enable;
+        };
+    };
+};
+
+/* PAT9125 v1 ID_SEL: drive P1.12 low so the sensor uses I2C address 0x75. */
+&gpio1 {
+    pat9125_legacy_id_sel_low: pat9125_legacy_id_sel_low {
+        gpio-hog;
+        gpios = <12 GPIO_ACTIVE_HIGH>;
+        output-low;
+        line-name = "pat9125-v1-id-sel";
+    };
+};
+
+&i2c1 {
+    status = "okay";
+    compatible = "nordic,nrf-twim";
+    pinctrl-0 = <&pat9125_legacy_i2c1_default>;
+    pinctrl-1 = <&pat9125_legacy_i2c1_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    trackball_pat9125_legacy: trackball_pat9125@75 {
+        status = "okay";
+        compatible = "pixart,pat9125";
+        reg = <0x75>;
+        motion-gpios = <&gpio0 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        res-x-cpi = <300>;
+        res-y-cpi = <300>;
+        zephyr,axis-x = <INPUT_REL_X>;
+        zephyr,axis-y = <INPUT_REL_Y>;
+        sleep1-enable;
+        sleep2-enable;
+    };
+};
+
+&split_peripheral {
+    status = "okay";
+    device = <&trackball_pat9125_legacy>;
+};

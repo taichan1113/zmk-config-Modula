@@ -1,0 +1,4 @@
+name: trackball_pat9125_legacy
+append:
+  EXTRA_DTC_OVERLAY_FILE: trackball_pat9125_legacy.overlay
+  EXTRA_CONF_FILE: trackball_pat9125_legacy.conf
