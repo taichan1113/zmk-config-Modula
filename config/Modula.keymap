@@ -6,6 +6,14 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
 
+#ifdef MODULA_MOUSE_UNIT
+#define MODULE_ENCODER_BINDING &mouse_scrl
+#define MOUSE_UNIT_BINDINGS &mkp LCLK &mkp RCLK
+#else
+#define MODULE_ENCODER_BINDING &bri_alt_gui
+#define MOUSE_UNIT_BINDINGS
+#endif
+
 #define DEFAULT 0
 #define SYMBOL 1
 #define NAVNUM 2
@@ -194,8 +202,9 @@
 &kp  ESC        &trans        &trans        &lth SYMBOL SPACE &lth NAVNUM BSPC                  &kp LALT    &mt LSHFT RET               &tog MOUSE  &none &tog SYMBOL
 &agm_mb4  &qmsc SCUP_S &agm_mute  &qmsc SCDN_S   &agm_mb5            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &agm_mute  &kp PSCRN
+MOUSE_UNIT_BINDINGS
 			>;
-            sensor-bindings = <&bri_alt_gui &vol_alt_gui>;
+            sensor-bindings = <MODULE_ENCODER_BINDING &vol_alt_gui>;
 		};
 		
 		symbol_layer {
@@ -207,8 +216,9 @@
 &trans       &trans       &trans                        &trans              &trans              &trans       &kp LS(RET)                 &trans       &trans       &trans 
 &agm_mb4  &msc MOVE_Y(120)   &kp PSCRN  &msc MOVE_Y(-120)   &agm_mb5            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp HOME &kp END
+MOUSE_UNIT_BINDINGS
 			>;
-            sensor-bindings = <&bri_alt_gui &vol_alt_gui>;
+            sensor-bindings = <MODULE_ENCODER_BINDING &vol_alt_gui>;
 		};
 		
 		navnum_layer {
@@ -220,8 +230,9 @@
 &trans       &trans    &trans               &trans    &trans    &trans    &trans             &trans    &trans   &trans
 &agm_mb4  &msc MOVE_Y(1200)   &kp PSCRN  &msc MOVE_Y(-1200)   &agm_mb5            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp HOME &kp END
+MOUSE_UNIT_BINDINGS
 			>;
-            sensor-bindings = <&bri_alt_gui &vol_alt_gui>;
+            sensor-bindings = <MODULE_ENCODER_BINDING &vol_alt_gui>;
 		};
 		
 		function_layer {
@@ -233,8 +244,9 @@
 &trans &trans &trans        &trans &trans &trans &trans        &trans &trans  &trans
 &agm_mb4  &msc MOVE_Y(120)   &kp PSCRN  &msc MOVE_Y(-120)   &agm_mb5            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp HOME &kp END
+MOUSE_UNIT_BINDINGS
 			>;
-            sensor-bindings = <&bri_alt_gui &vol_alt_gui>;
+            sensor-bindings = <MODULE_ENCODER_BINDING &vol_alt_gui>;
 		};
 		
 		device_layer {
@@ -246,8 +258,9 @@
 &trans            &trans           &trans                            &trans           &trans               &trans            &trans                            &trans           &trans           &trans
 &agm_mb4  &none   &none  &none   &agm_mb5            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp HOME &kp END
+MOUSE_UNIT_BINDINGS
 			>;
-            sensor-bindings = <&bri_alt_gui &vol_alt_gui>;
+            sensor-bindings = <MODULE_ENCODER_BINDING &vol_alt_gui>;
 		};
 
         mouse_layer {
@@ -259,8 +272,9 @@
 &trans  &trans  &trans          &trans  &trans                              &trans  &trans          &trans  &trans  &trans
 &agm_mb4  &msc MOVE_Y(120)   &kp PSCRN  &msc MOVE_Y(-120)   &agm_mb5            &kp LEFT    &kp UP          &kp C_MUTE  &kp DOWN   &kp RIGHT
 &kp HOME &kp END
+MOUSE_UNIT_BINDINGS
 			>;
-            sensor-bindings = <&bri_alt_gui &vol_alt_gui>;
+            sensor-bindings = <MODULE_ENCODER_BINDING &vol_alt_gui>;
 		};
 	};
 };

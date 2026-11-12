@@ -1,0 +1,61 @@
+#include <dt-bindings/zmk/pointing.h>
+
+/* Scale the existing scroll speed; keep the 20ms tap and rotation direction. */
+#define MOUSE_UNIT_SCROLL_MULTIPLIER 3
+
+&mouse_scrl {
+    bindings = <&msc MOVE_Y(-ZMK_POINTING_DEFAULT_MOVE_VAL * MOUSE_UNIT_SCROLL_MULTIPLIER)>,
+               <&msc MOVE_Y(ZMK_POINTING_DEFAULT_MOVE_VAL * MOUSE_UNIT_SCROLL_MULTIPLIER)>;
+};
+
+/* Both halves need the combo/keymap; only the left half owns the GPIOs. */
+#ifdef MODULA_LEFT
+&right_encoder {
+    status = "okay";
+    a-gpios = <&gpio0 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    /* EC05E1220202: 12 A/B cycles x 4 quadrature transitions. */
+    steps = <48>;
+};
+
+/ {
+    mouse_unit_buttons: mouse-unit-buttons {
+        compatible = "zmk,kscan-gpio-direct";
+        wakeup-source;
+        input-gpios = <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                      <&gpio1 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        debounce-press-ms = <8>;
+        debounce-release-ms = <18>;
+    };
+};
+
+&kscan0 {
+    mouse-unit {
+        row-offset = <7>;
+        kscan = <&mouse_unit_buttons>;
+    };
+};
+#endif
+
+/* Order matches sensors = <&right_encoder &left_encoder>.
+ * These settings must also be present on the central half.
+ */
+&sensors {
+    mouse_unit_config {
+        triggers-per-rotation = <12>;
+    };
+    left_encoder_config {
+        triggers-per-rotation = <30>;
+    };
+};
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+        mouse_unit_middle {
+            timeout-ms = <2>;
+            key-positions = <58 59>;
+            bindings = <&mkp MCLK>;
+        };
+    };
+};

@@ -1,0 +1,5 @@
+name: mouse-unit
+append:
+  DTS_EXTRA_CPPFLAGS: -DMODULA_MOUSE_UNIT
+  EXTRA_DTC_OVERLAY_FILE: mouse-unit.overlay
+  EXTRA_CONF_FILE: mouse-unit.conf

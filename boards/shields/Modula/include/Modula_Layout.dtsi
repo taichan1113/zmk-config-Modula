@@ -67,6 +67,11 @@ physical_layout0: physical_layout_0 {
     /* additional(module) keys */
     , <&key_physical_attrs 100 100  335  300       0     0     0>
     , <&key_physical_attrs 100 100 1260  300       0     0     0>
+
+#ifdef MODULA_MOUSE_UNIT
+    , <&key_physical_attrs 100 100  600  500  0 0 0>
+    , <&key_physical_attrs 100 100  700  500  0 0 0>
+#endif
     ;
   };
 };

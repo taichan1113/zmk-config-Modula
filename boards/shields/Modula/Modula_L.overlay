@@ -1,3 +1,4 @@
+#define MODULA_LEFT
 #include "Modula_Base.dtsi"
 
 // &pwm0 {status = "disabled";};

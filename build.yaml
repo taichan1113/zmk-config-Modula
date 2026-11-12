@@ -11,13 +11,13 @@ include:
     # Choose one PWM feedback snippet:
     # - typing_pwm: WPM-driven PWM feedback
     # - pwm_backlight_runtime: ZMK backlight PWM owner
-    snippet: trackball_paw3222 typing_pwm
+    snippet: trackball_paw3222 typing_pwm mouse-unit
     artifact-name: Modula_R
 
   - board: seeeduino_xiao_ble
     shield: Modula_L rgbled_adapter
-    # Modules are independent: PAT9125 can coexist with either EC11 snippet.
-    snippet: trackball_pat9125 encoder_ec11_left
+    # mouse-unit replaces PAT9125; both halves need its shared keymap.
+    snippet: mouse-unit encoder_ec11_left
     # snippet: studio-rpc-usb-uart
     artifact-name: Modula_L
 
